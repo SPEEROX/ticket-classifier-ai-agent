@@ -33,6 +33,7 @@ Input JSON (list of messages)
 ```
 ticket-classifier-ai-agent/
 ├── backend/
+│   ├── __init__.py
 │   ├── classifier.py      # Core classification logic
 │   ├── server.py          # FastAPI REST server
 │   └── requirements.txt   # Python dependencies
