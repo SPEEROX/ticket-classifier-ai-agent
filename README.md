@@ -1,6 +1,15 @@
 # 🎫 AI-Powered Support Ticket Classifier
 
-Automatically classify and prioritize customer support messages using the OpenAI API. Built with Python (FastAPI) and a live interactive demo UI.
+Automatically classify and prioritize customer support messages using the OpenAI API.
+
+Built with:
+- Python
+- FastAPI
+- OpenAI GPT-4o-mini
+- Optional AI-assisted frontend UI
+
+The backend and API logic were fully developed manually.  
+The frontend UI was created with AI assistance since frontend development is not my primary area of expertise.
 
 ---
 
@@ -24,6 +33,9 @@ Input JSON (list of messages)
         │
         ▼  (optional)
   FastAPI server  ─── POST /classify
+        │
+        ▼
+ Optional Frontend UI
 ```
 
 ---
@@ -34,10 +46,16 @@ Input JSON (list of messages)
 ticket-classifier-ai-agent/
 ├── backend/
 │   ├── __init__.py
-│   ├── classifier.py      # Core classification logic
-│   ├── server.py          # FastAPI REST server
-│   └── requirements.txt   # Python dependencies
-├── sample_output.json     # Example classifier output
+│   ├── classifier.py      # Core AI classification logic
+│   ├── server.py          # FastAPI REST API
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── index.html         # Frontend UI
+│   ├── style.css          # Styling
+│   └── app.js             # API integration
+│
+├── sample_output.json
 ├── .gitignore
 └── README.md
 ```
@@ -59,11 +77,21 @@ pip install -r requirements.txt
 ```
 
 ### 3. Set your OpenAI API key
+#### Windows PowerShell
+
+```powershell
+$env:OPENAI_API_KEY="sk-..."
+```
+
+#### Linux / macOS
+
 ```bash
 export OPENAI_API_KEY="sk-..."
 ```
+
 Or create a `.env` file:
-```
+
+```env
 OPENAI_API_KEY=sk-...
 ```
 
@@ -103,6 +131,28 @@ curl -X POST http://localhost:8000/classify \
 ```
 
 API docs available at: `http://localhost:8000/docs`
+
+## Option C — Run with Frontend UI
+
+Start backend server first:
+
+```bash
+uvicorn backend.server:app --reload
+```
+
+Then open:
+
+```text
+frontend/index.html
+```
+
+You can also use the VS Code Live Server extension for a better frontend experience.
+
+The frontend connects to:
+
+```text
+http://localhost:8000/classify
+```
 
 ---
 
@@ -153,7 +203,40 @@ API docs available at: `http://localhost:8000/docs`
 2. **Temperature = 0** — Deterministic outputs for consistent classification.
 3. **GPT-4o-mini** — Fast and cost-efficient for classification tasks.
 4. **Graceful error handling** — Each message is classified independently; failures don't crash the batch.
-5. **Stdin support** — Pipe any JSON array directly to the CLI.
+5. **FastAPI Backend**- REST API for easy frontend and external integration.
+6. **Batch Processing**- Multiple support tickets can be processed in a single request.
+7. **Stdin support** — Pipe any JSON array directly to the CLI.
+
+---
+
+## ✅ Ways to Run the Project
+
+This project can be used in multiple ways:
+
+| Mode | Description |
+|---|---|
+| CLI Mode | Run `classifier.py` directly from terminal |
+| API Mode | Use FastAPI endpoints via `/classify` |
+| Frontend Mode | Use the interactive web UI connected to the backend |
+
+This means the classifier works independently even without the frontend.
+
+---
+
+## 🖼️ Frontend Preview
+
+### AI-Powered Ticket Classification UI
+
+<img width="100%" alt="Frontend Preview" src="./assets/frontend-preview.png">
+
+### Features
+
+- Modern glassmorphism UI
+- Real-time classification
+- Responsive design
+- Priority color indicators
+- FastAPI backend integration
+- Loading states and error handling
 
 ---
 
@@ -173,3 +256,13 @@ See [`sample_output.json`](./sample_output.json) for full example output with 8 
 ## 📄 License
 
 MIT
+
+## 🤖 Note About Frontend
+
+The backend architecture, API design, classification logic, and integration were developed manually.
+
+Since frontend engineering is not my primary specialization, the UI layer was created with AI assistance and then integrated into the project manually.
+
+The core AI classification pipeline, FastAPI backend, error handling, and OpenAI integration were implemented independently.
+
+---

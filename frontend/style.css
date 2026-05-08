@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0f172a;
+  color: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, #2563eb55, transparent 30%),
+    radial-gradient(circle at bottom right, #7c3aed55, transparent 30%),
+    #020617;
+  z-index: -1;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: auto;
+  padding: 50px 0;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+header p {
+  color: #cbd5e1;
+  font-size: 1.05rem;
+}
+
+.card {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 24px;
+  padding: 25px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+
+.input-card {
+  margin-bottom: 35px;
+}
+
+label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+textarea {
+  width: 100%;
+  height: 220px;
+  border: none;
+  outline: none;
+  resize: none;
+  border-radius: 18px;
+  padding: 18px;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+textarea::placeholder {
+  color: #94a3b8;
+}
+
+button {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255,255,255,0.2);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+.ticket-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 22px;
+  padding: 22px;
+  transition: 0.3s ease;
+}
+
+.ticket-card:hover {
+  transform: translateY(-5px);
+}
+
+.ticket-message {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f8fafc;
+  margin-bottom: 18px;
+}
+
+.badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.category {
+  background: rgba(59,130,246,0.2);
+  color: #93c5fd;
+}
+
+.high {
+  background: rgba(239,68,68,0.2);
+  color: #fca5a5;
+}
+
+.medium {
+  background: rgba(245,158,11,0.2);
+  color: #fcd34d;
+}
+
+.low {
+  background: rgba(34,197,94,0.2);
+  color: #86efac;
+}
+
+.error {
+  background: rgba(239,68,68,0.15);
+  color: #fecaca;
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  textarea {
+    height: 180px;
+  }
+}
