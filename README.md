@@ -246,6 +246,16 @@ See [`sample_output.json`](./sample_output.json) for full example output with 8 
 
 ---
 
+## 🤖 Note About Frontend
+
+The backend architecture, API design, classification logic, and integration were developed manually.
+
+Since frontend engineering is not my primary specialization, the UI layer was created with AI assistance and then integrated into the project manually.
+
+The core AI classification pipeline, FastAPI backend, error handling, and OpenAI integration were implemented independently.
+
+---
+
 ## 📋 Requirements
 
 - Python 3.11+
@@ -256,13 +266,5 @@ See [`sample_output.json`](./sample_output.json) for full example output with 8 
 ## 📄 License
 
 MIT
-
-## 🤖 Note About Frontend
-
-The backend architecture, API design, classification logic, and integration were developed manually.
-
-Since frontend engineering is not my primary specialization, the UI layer was created with AI assistance and then integrated into the project manually.
-
-The core AI classification pipeline, FastAPI backend, error handling, and OpenAI integration were implemented independently.
 
 ---
