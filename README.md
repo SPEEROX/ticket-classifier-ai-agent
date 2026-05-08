@@ -31,12 +31,13 @@ Input JSON (list of messages)
 ## 📂 Project Structure
 
 ```
-support-classifier/
+ticket-classifier-ai-agent/
 ├── backend/
 │   ├── classifier.py      # Core classification logic
 │   ├── server.py          # FastAPI REST server
 │   └── requirements.txt   # Python dependencies
 ├── sample_output.json     # Example classifier output
+├── .gitignore
 └── README.md
 ```
 
